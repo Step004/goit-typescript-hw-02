@@ -7,15 +7,8 @@ import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import ImageModal from "../ImageModal/ImageModal";
+import { Image } from "./App.types";
 
-interface Image {
-  id: string;
-  urls: {
-    small: string;
-    regular: string;
-  };
-  description: string;
-}
 
 function App() {
   const [photos, setPhotos] = useState<Image[]>([]);

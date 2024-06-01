@@ -5,7 +5,6 @@ interface ImageModalProps {
   isOpen: boolean;
   imageUrl: string;
   onClose: () => void;
-  
 }
 
 const ImageModal: React.FC<ImageModalProps> = ({
