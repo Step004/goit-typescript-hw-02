@@ -5,6 +5,7 @@ interface ImageModalProps {
   isOpen: boolean;
   imageUrl: string;
   onClose: () => void;
+  
 }
 
 const ImageModal: React.FC<ImageModalProps> = ({
@@ -20,6 +21,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
       onRequestClose={onClose}
       overlayClassName={css.overlay}
       className={css.content}
+      ariaHideApp={false}
     >
       <img src={imageUrl} alt="Modal Image" className={css.image} />
     </Modal>

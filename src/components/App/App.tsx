@@ -28,24 +28,21 @@ function App() {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [imageUrl, setImageUrl] = useState<string>("");
 
-
-
-  function openModal() {
+  function openModal():void {
     setModalIsOpen(true);
   }
-  function closeModal() {
+  function closeModal():void {
     setModalIsOpen(false);
   }
 
-  const handleSubmit = (query:string) => {
+  const handleSubmit = (query:string):void => {
     setQuery(query);
     setPage(1);
     setPhotos([]);
     setTotalPages(0);
-
   };
 
-  const handleLoadMore = () => {
+  const handleLoadMore = ():void => {
     setPage(page + 1);
   };
 
@@ -75,7 +72,7 @@ function App() {
 
   return (
     <>
-      <SearchBar onSubmit={handleSubmit}/>
+      <SearchBar onSubmit={handleSubmit} />
 
       {modalIsOpen && (
         <ImageModal
@@ -90,9 +87,9 @@ function App() {
       {photos.length > 0 && (
         <ImageGallery
           items={photos}
-          isOpen={modalIsOpen}
+          // isOpen={modalIsOpen}
           openModal={openModal}
-          closeModal={closeModal}
+          // closeModal={closeModal}
           setImageUrl={setImageUrl}
         />
       )}

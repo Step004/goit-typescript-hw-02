@@ -13,12 +13,10 @@ interface Image {
 interface ImageGalleryProps {
   items: Image[];
   openModal: () => void;
-  closeModal: () => void;
-  isOpen: boolean;
   setImageUrl: (url: string) => void;
 }
 
-const ImageGallery: React.FC<ImageGalleryProps> =({ items, openModal, closeModal, isOpen, setImageUrl }) => {
+const ImageGallery: React.FC<ImageGalleryProps> =({ items, openModal, setImageUrl }) => {
   return (
     <ul className={css.list}>
       {items.map((image) => (
@@ -27,8 +25,6 @@ const ImageGallery: React.FC<ImageGalleryProps> =({ items, openModal, closeModal
             <ImageCard
               image={image}
               openModal={openModal}
-              closeModal={closeModal}
-              isOpen={isOpen}
               setImageUrl={setImageUrl}
             />
           </div>
