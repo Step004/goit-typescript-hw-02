@@ -8,16 +8,27 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import ImageModal from "../ImageModal/ImageModal";
 
-function App() {
-  const [photos, setPhotos] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+interface Image {
+  id: string;
+  urls: {
+    small: string;
+    regular: string;
+  };
+  description: string;
+}
 
-  const [page, setPage] = useState(1);
-  const [query, setQuery] = useState("");
-  const [totalPages, setTotalPages] = useState(0);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [imageUrl, setImageUrl] = useState("");
+function App() {
+  const [photos, setPhotos] = useState<Image[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+
+  const [page, setPage] = useState<number>(1);
+  const [query, setQuery] = useState<string>("");
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const [imageUrl, setImageUrl] = useState<string>("");
+
+
 
   function openModal() {
     setModalIsOpen(true);
@@ -26,7 +37,7 @@ function App() {
     setModalIsOpen(false);
   }
 
-  const handleSubmit = (query) => {
+  const handleSubmit = (query:string) => {
     setQuery(query);
     setPage(1);
     setPhotos([]);
